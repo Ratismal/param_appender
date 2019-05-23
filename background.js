@@ -5,7 +5,7 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){
             whitelist: '.\ngoogle\\.com'
         }, items => {
             if(changeInfo.url.indexOf(items.parameter) === -1 && /^https?/.test(changeInfo.url) 
-                && items.whitelist.split('\n').map(wl => new RegExp(wl, 'i').test(changeInfo.url)).reduce((acu, cur) => acu || cur, false)) {
+                && items.whitelist.trim().split('\n').map(wl => new RegExp(wl, 'i').test(changeInfo.url)).reduce((acu, cur) => acu || cur, false)) {
                 let url = changeInfo.url;
                 if (url.indexOf('?') > -1) url += '&';
                 else url += '?';
