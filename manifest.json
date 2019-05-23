@@ -1,0 +1,17 @@
+{
+    "name": "param_appender",
+    "version": "1.0",
+    "description": "appends a configurable parameter to the url on url change",
+    "manifest_version": 2,
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "permissions": [
+        "tabs",
+        "http://*/*",
+        "https://*/*",
+        "storage"
+    ],
+    "options_page": "options.html"
+  }
