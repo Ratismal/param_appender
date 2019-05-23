@@ -2,7 +2,7 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){
     if (changeInfo.url) {
         chrome.storage.sync.get({
             parameter: 'param=true',
-            whitelist: '.\ngoogle\\\\.com'
+            whitelist: '.\ngoogle\\.com'
         }, items => {
             if(changeInfo.url.indexOf(items.parameter) === -1 && /^https?/.test(changeInfo.url) 
                 && items.whitelist.split('\n').map(wl => new RegExp(wl, 'i').test(changeInfo.url)).reduce((acu, cur) => acu || cur, false)) {

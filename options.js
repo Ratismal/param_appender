@@ -21,7 +21,7 @@ function save_options() {
     // Use default value color = 'red' and likesColor = true.
     chrome.storage.sync.get({
       parameter: 'param=true',
-      whitelist: '.\ngoogle\\\\.com'
+      whitelist: '.\ngoogle\\.com'
     }, function(items) {
       document.getElementById('param').value = items.parameter;
       document.getElementById('whitelist').value = items.whitelist;
