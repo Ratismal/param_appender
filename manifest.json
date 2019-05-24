@@ -1,5 +1,6 @@
 {
-    "name": "param_appender",
+    "name": "param appender",
+    "short_name": "pappender",
     "version": "1.0",
     "description": "appends a configurable parameter to the url on url change",
     "manifest_version": 2,
@@ -13,5 +14,11 @@
         "https://*/*",
         "storage"
     ],
-    "options_page": "options.html"
+    "options_page": "options.html",
+    "icons": {
+        "16": "icons/icon16.png",
+        "32": "icons/icon32.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    }
   }
