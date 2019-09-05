@@ -1,19 +1,39 @@
-chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-    if (changeInfo.url) {
-        chrome.storage.sync.get({
-            parameter: 'param=true',
-            whitelist: '.\ngoogle\\.com'
-        }, items => {
-            if (changeInfo.url.indexOf(items.parameter) === -1 && /^https?/.test(changeInfo.url)
-                && items.whitelist.trim().split('\n').map(wl => new RegExp(wl, 'i').test(changeInfo.url)).reduce((acu, cur) => acu || cur, false)) {
-                let url = changeInfo.url;
+let config = {
+    parameter: 'param=true',
+    whitelist: '.\ngoogle\\.com'
+};
+
+chrome.storage.sync.get(config, items => {
+    config = items;
+});
+
+chrome.storage.sync.onChanged.addListener(changes => {
+    for (const key in changes)
+        config[key] = changes[key];
+});
+
+chrome.webRequest.onBeforeRequest.addListener(
+    function (details) {
+        if (details.url) {
+            console.log(details, config);
+            if (details.url.indexOf(config.parameter) === -1 && /^https?/.test(details.url)
+                && config.whitelist.trim().split('\n').map(wl => new RegExp(wl, 'i').test(details.url)).reduce((acu, cur) => acu || cur, false)) {
+                let url = details.url;
                 if (url.indexOf('?') > -1) url += '&';
                 else url += '?';
-                url += items.parameter;
-                chrome.tabs.executeScript(tab.id, {
-                    code: `window.history.replaceState('param appender', 'param appended', '${url}')`
-                });
+                url += config.parameter;
+                console.log('redirecting to', url);
+                return { redirectUrl: url };
             }
-        });
-    }
-});
+        }
+    },
+    // filters
+    {
+        urls: [
+            "<all_urls>"
+        ],
+        types: ["main_frame"]
+    },
+    // extraInfoSpec
+    ["blocking"]
+);
