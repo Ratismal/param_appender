@@ -1,26 +1,37 @@
 {
-    "name": "param appender",
-    "short_name": "pappender",
-    "version": "1.1",
-    "description": "appends a configurable parameter to the url on url change",
-    "manifest_version": 2,
-    "background": {
-        "scripts": [
-            "background.js"
-        ]
-    },
-    "permissions": [
-        "http://*/*",
-        "https://*/*",
-        "storage",
-        "webRequest",
-        "webRequestBlocking"
-    ],
-    "options_page": "options.html",
-    "icons": {
-        "16": "icons/icon16.png",
-        "32": "icons/icon32.png",
-        "48": "icons/icon48.png",
-        "128": "icons/icon128.png"
+  "name": "param appender",
+  "short_name": "pappender",
+  "version": "1.2",
+  "description": "appends a configurable parameter to the url on url change",
+  "manifest_version": 2,
+  "background": {
+    "scripts": [
+      "scripts/background.js"
+    ]
+  },
+  "permissions": [
+    "http://*/*",
+    "https://*/*",
+    "storage",
+    "tabs",
+    "webRequest",
+    "webRequestBlocking",
+    "declarativeContent"
+  ],
+  "browser_action": {
+    "default_popup": "views/popup.html",
+    "default_icons": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
     }
+  },
+  "options_page": "views/options.html",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
 }

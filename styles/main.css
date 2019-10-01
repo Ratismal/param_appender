@@ -1,0 +1,143 @@
+:root {
+  --primary-color: rgb(39, 186, 108);
+  --primary-color-hover: rgb(51, 212, 126);
+
+  --text-color: rgb(255, 255, 255);
+  --background-color: rgb(26, 26, 26);
+  --secondary-background-color: rgb(48, 48, 48);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+html:not(.popup) body {
+  font-size: 1.1em;
+}
+
+html.popup {
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+html.popup h1 {
+  margin-top: 0;
+}
+
+main {
+  max-width: 600px;
+  margin: 1rem auto;
+  min-width: 250px;
+}
+
+label,
+span {
+  font-size: 1.4em;
+}
+
+label {
+  display: block;
+  margin-top: 1rem;
+}
+
+.desc {
+  font-size: 0.8em;
+  display: block;
+}
+
+textarea {
+  width: 100%;
+  min-height: 300px;
+}
+
+input {
+}
+
+textarea, input {
+  background: var(--secondary-background-color);
+  border: none;
+  width: 100%;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  border-radius: 5px;
+  color: white;
+  font-family: monospace;
+  font-size: 1.1em;
+}
+
+.button {
+  outline: none;
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  display: inline-block;
+}
+
+.button.full {
+  display: block;
+  padding: 0.7rem;
+  font-size: 1.1em;
+  width: 100%;
+  margin: 0.25rem 0;
+}
+
+.button:hover {
+  background-color: var(--primary-color-hover);
+}
+
+.button.options {
+  background-color: rgb(35, 137, 166);
+}
+.button.options:hover {
+  background-color: rgb(47, 170, 204);
+}
+
+#history-wrapper {
+  display: none;
+}
+#history-wrapper.enabled {
+  display: block;
+  margin: 1rem 0;
+}
+
+#history-entries {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.5rem;
+  overflow-y: auto;
+  max-height: 250px;
+}
+.button.mini {
+  display: block;
+  padding: 0.4rem;
+  font-size: 1em;
+  width: 100%;
+}
+.button.history {
+  background-color: rgb(139, 33, 163);
+}
+.button.history:hover {
+  background-color: rgb(167, 47, 194);
+}
+.button.danger {
+  background-color: rgb(166, 30, 30);
+}
+.button.danger:hover {
+  background-color: rgb(194, 39, 39);
+}
+
+.history-entry {
+  display: flex;
+}

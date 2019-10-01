@@ -9,7 +9,7 @@ chrome.storage.sync.get(config, items => {
 
 chrome.storage.sync.onChanged.addListener(changes => {
     for (const key in changes)
-        config[key] = changes[key];
+        config[key] = changes[key].newValue;
 });
 
 chrome.webRequest.onBeforeRequest.addListener(
