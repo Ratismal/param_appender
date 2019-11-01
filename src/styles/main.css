@@ -77,6 +77,16 @@ textarea, input {
   font-size: 1.1em;
 }
 
+.button-group {
+  display: flex;
+}
+
+.button-group .button {
+  flex: 1 0 auto;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+}
+
 .button {
   outline: none;
   border: none;
@@ -140,4 +150,13 @@ textarea, input {
 
 .history-entry {
   display: flex;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+
+}
+.input-wrapper input {
+  margin: 0.5rem 0;
 }

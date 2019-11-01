@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>param appender options</title>
+    <link rel="stylesheet" type="text/css" href="../styles/main.css">
+    <script src="/scripts/vue.min.js"></script>
+</head>
+
+<body>
+    <main id='app'>
+        <h1>param appender options</h1>
+        <label>parameter:</label>
+        <input type="text" v-model="param">
+
+        <label>regex whitelist:</label>
+        <span class='desc'>Put one expression per line. Expressions are called with the 'i' flag (case-insensitive).</span>
+        <span class='desc'>Param will be appended if ANY expression matches (||).</span>
+        <span class='desc'>Be careful of newlines! For extra safety, use the <code>list</code> mode.</code></span>
+        <div class='button-group'>
+            <button v-for="type in inputTypes" :key="type" @click.prevent="setInputType(type)" class="button">{{type}}</button>
+        </div>
+        <template v-if="inputType == 'text'">
+            <textarea v-model="whitelist"></textarea>
+        </template>
+        <template v-else>
+            <div class='input-wrapper'>
+                <div class='button-group' v-for="(line, i) in whitelistList" :key="i">
+                    <input v-model="whitelistList[i]"></input>
+                    <button class='button danger' @click.prevent="removeLine(i)">Remove</button>
+                </div>
+                <div class='button-group'>
+                    <button class='button' @click.prevent="addLine()">Add</button>
+                </div>
+            </div>
+        </template>
+        <div>{{status}}</div>
+        <button id="save" class='button full' @click.prevent="save">Save</button>
+    </main>
+
+    <script src="/scripts/options.js"></script>
+</body>
+
+</html>
