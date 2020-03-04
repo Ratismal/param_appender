@@ -13,7 +13,6 @@
     "http://*/*",
     "https://*/*",
     "storage",
-    "tabs",
     "webRequest",
     "webRequestBlocking",
     "declarativeContent"
