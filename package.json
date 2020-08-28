@@ -1,0 +1,14 @@
+{
+  "name": "param_appender",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ratismal/param_appender",
+  "author": "stupid cat <cat@blargbot.xyz>",
+  "license": "MIT",
+  "scripts": {
+    "zip": "node pack.js"
+  },
+  "dependencies": {
+    "archiver": "^3.1.1"
+  }
+}

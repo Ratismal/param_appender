@@ -44,7 +44,7 @@ main {
 
 label,
 span {
-  font-size: 1.4em;
+  font-size: 1.2em;
 }
 
 label {
@@ -77,12 +77,45 @@ textarea, input {
   font-size: 1.1em;
 }
 
+.param-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+.param-list .param-wrapper, .param-list .param-wrapper button {
+  width: 100%;
+  overflow: hidden;
+}
+.button.full.add-param {
+  margin-top: 10px;
+}
+
+.button-group {
+  display: flex;
+}
+
+.button-group .button {
+  flex: 1 0 auto;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+}
+.warning-wrapper {
+  font-size: 0.8em;
+  margin-bottom: 1rem;
+  color: rgb(216, 216, 60);
+}
+.status {
+  margin-bottom: 1rem;
+}
+
 .button {
   outline: none;
   border: none;
   background-color: var(--primary-color);
   color: white;
   display: inline-block;
+  padding: 0.5rem;
+  user-select: none;
 }
 
 .button.full {
@@ -91,6 +124,14 @@ textarea, input {
   font-size: 1.1em;
   width: 100%;
   margin: 0.25rem 0;
+}
+
+.button.full.danger.delete-param {
+  margin-bottom: 1rem;
+}
+
+.button.selected {
+  background-color: var(--primary-color-hover);
 }
 
 .button:hover {
@@ -140,4 +181,13 @@ textarea, input {
 
 .history-entry {
   display: flex;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+
+}
+.input-wrapper input {
+  margin: 0.5rem 0;
 }

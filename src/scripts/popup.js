@@ -101,6 +101,12 @@ function append_param() {
 }
 
 document.addEventListener('DOMContentLoaded', restore_options);
+document.getElementById('param').addEventListener('keydown', function (e) {
+  if (e.code === 'Enter') {
+    e.preventDefault();
+    append_param();
+  }
+})
 document.getElementById('append').addEventListener('click',
   append_param);
 document.getElementById('options').addEventListener('click', function () {
